@@ -1,7 +1,5 @@
 #include "bh1750.h"
 
-
-
 static void BH1750_WriteCmd(uint8_t cmd) {
     I2C_GenerateSTART(I2C1, ENABLE);
     while (!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT));
