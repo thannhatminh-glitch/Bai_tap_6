@@ -7,6 +7,7 @@
 void I2C1_Config(void);
 void USART1_Config(void);
 void UART1_SendStr(char *str);
+void delay_ms(uint32_t ms);
 
 int main(void)
 {
@@ -87,6 +88,13 @@ void I2C1_Config(void)
     I2C_Init(I2C1, &I2C_InitStructure);
 
     I2C_Cmd(I2C1, ENABLE);
+}
+
+void delay_ms(uint32_t ms) {
+    uint32_t i;
+    for(i = 0; i < ms * 8000; i++) {
+        __NOP();
+    }
 }
 
 
