@@ -1,11 +1,5 @@
 #include "bh1750.h"
-void delay_ms(uint32_t ms) {
-    SysTick_Config(SystemCoreClock / 1000);
-    while(ms--) {
-        while(!((SysTick->CTRL) & (1 << 16)));
-    }
-    SysTick->CTRL = 0;
-}
+
 
 
 static void BH1750_WriteCmd(uint8_t cmd) {
